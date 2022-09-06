@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "849868038386",
+    "project_id": "yunews-a6a12",
+    "storage_bucket": "yunews-a6a12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849868038386:android:caf91fee1c64b8d753b06b",
+        "android_client_info": {
+          "package_name": "com.unik.yunews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849868038386-h5eol9u8ecvsu06cju59e3hfoaak01ct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq1CcVFJtKcZ0-cnyfu1Yc69ieLb6RgeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849868038386-h5eol9u8ecvsu06cju59e3hfoaak01ct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
