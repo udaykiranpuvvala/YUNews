@@ -30,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:fontFamily="@font/montserrat_regular"
                 android:id="@+id/txtSignUpTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,6 +82,7 @@
 
                     <EditText
                         android:id="@+id/edtPhone"
+                        android:fontFamily="@font/montserrat_regular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -105,6 +107,7 @@
                 app:cardCornerRadius="@dimen/_10sdp">
 
                 <TextView
+                    android:fontFamily="@font/montserrat_regular"
                     android:id="@+id/txtSendOTP"
                     style="@style/RoundedButton"
                     android:layout_width="match_parent"
@@ -116,6 +119,7 @@
         </LinearLayout>
 
         <TextView
+            android:fontFamily="@font/montserrat_black"
             android:id="@+id/txtSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,7 +128,6 @@
             android:gravity="center"
             android:text="@string/skip_to_home"
             android:textColor="@color/black"
-            android:textFontWeight="100"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

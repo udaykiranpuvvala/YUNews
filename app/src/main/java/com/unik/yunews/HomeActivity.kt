@@ -1,23 +1,17 @@
 package com.unik.yunews
 
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import com.unik.yunews.adapter.ViewPagerAdapter
-import com.unik.yunews.api.NewsService
-import com.unik.yunews.api.RetorfitHelper
+import com.unik.yunews.adapter.PageAdapter
 import com.unik.yunews.databinding.ActivityHomeBinding
-import com.unik.yunews.repository.NewsRepository
-import com.unik.yunews.viewmodel.MainViewModel
-import com.unik.yunews.viewmodel.MainViewModelFactory
+import com.unik.yunews.utilities.PopUtils
 
 class HomeActivity : AppCompatActivity() {
     lateinit var phno: String
     lateinit var binding: ActivityHomeBinding
 
-    private lateinit var viewModel: MainViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,17 +26,28 @@ class HomeActivity : AppCompatActivity() {
             phno = intent.getStringExtra("phno").toString()
             Utility.setSharedPrefStringData(this, "PHNO", phno)
         }
-        val newsService = RetorfitHelper.getInstance().create(NewsService::class.java)
-        val repository = NewsRepository(newsService)
-        viewModel = ViewModelProvider(this, MainViewModelFactory(repository)).get(MainViewModel::class.java)
 
-        viewModel.news.observe(this) {  articleList->
-            if (articleList != null){
-                binding.verticalViewPager.setAdapter(ViewPagerAdapter(this@HomeActivity, articleList.articles))
-            }else {
-                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+
+        binding.viewPager.adapter = PageAdapter(supportFragmentManager)
+        binding.viewPager.setCurrentItem(1,false)
+
+    }
+
+    override fun onBackPressed() {
+        when (binding.viewPager.currentItem) {
+            0 -> {
+                PopUtils.exitDialog(this, "Are you sure want to Exit?", View.OnClickListener {
+                    finishAffinity()
+                })
+            }
+            1 -> {
+                PopUtils.exitDialog(this,"Are you sure want to Exit?", View.OnClickListener {
+                    finishAffinity()
+                })
+            }
+            2 -> {
+                binding.viewPager.setCurrentItem(1,false)
             }
         }
-
     }
 }

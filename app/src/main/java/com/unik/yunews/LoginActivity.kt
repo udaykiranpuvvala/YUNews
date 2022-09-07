@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.txtSendOTP.setOnClickListener {
             if (!TextUtils.isEmpty(binding.edtPhone.text.trim().toString())) {
+                Utility.showLoadingDialog(this,"Loading...",false)
                 sendVerificationCode("+91" + binding.edtPhone.text.trim().toString());
             } else {
                 Toast.makeText(this, "Please Enter Phone Number", Toast.LENGTH_LONG).show()
@@ -56,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
             // OTP is sent from Firebase
             override fun onCodeSent(s: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
                 super.onCodeSent(s, forceResendingToken)
+                Utility.hideLoadingDialog()
                 // when we receive the OTP it
                 // contains a unique id which
                 // we are storing in our string
@@ -70,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
             // this method is called when user
             // receive OTP from Firebase.
             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
+                Utility.hideLoadingDialog()
                 // below line is used for getting OTP code
                 // which is sent in phone auth credentials.
                 val code = phoneAuthCredential.smsCode
@@ -93,6 +96,7 @@ class LoginActivity : AppCompatActivity() {
             // this method is called when firebase doesn't
             // sends our OTP code due to any error or issue.
             override fun onVerificationFailed(e: FirebaseException) {
+                Utility.hideLoadingDialog()
                 // displaying error message with firebase exception.
                 Toast.makeText(this@LoginActivity, "Verify OTP : " + e.message, Toast.LENGTH_LONG)
                     .show()

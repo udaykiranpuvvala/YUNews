@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey_dark">#A9A9A9</color>
     <color name="silver">#F0787373</color>
+    <color name="silverBG">#F0878282</color>
+    <color name="blackTransparent">#D9000000</color>
+    <color name="whiteTransparent">#D9FFFFFF</color>
     <color name="otp_text_gray_color">#4C4C4C</color>
 </resources>
