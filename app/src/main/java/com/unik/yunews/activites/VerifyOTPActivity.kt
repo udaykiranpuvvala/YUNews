@@ -1,4 +1,4 @@
-package com.unik.yunews
+package com.unik.yunews.activites
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,6 +11,8 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.unik.yunews.R
+import com.unik.yunews.Utility
 import com.unik.yunews.databinding.ActivityVerifyOtpBinding
 import java.util.concurrent.TimeUnit
 
@@ -24,7 +26,7 @@ class VerifyOTPActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_verify_otpactivity)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_verify_otp)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_verify_otp)
 
         initUI()
     }
@@ -52,7 +54,7 @@ class VerifyOTPActivity : AppCompatActivity() {
 
         binding.txtResend.setOnClickListener {
             if(binding.txtResend.text.equals("Resend")){
-                Utility.showLoadingDialog(this,"Wait for OTP...",true)
+                Utility.showLoadingDialog(this, "Wait for OTP...", true)
                 sendVerificationCode("+91$phNo")
             }
 //            Toast.makeText(this,"Clicked",Toast.LENGTH_SHORT).show()

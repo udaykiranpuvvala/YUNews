@@ -1,4 +1,4 @@
-package com.unik.yunews;
+package com.unik.yunews.adapter;
 
 import android.content.Context;
 import android.util.AttributeSet;

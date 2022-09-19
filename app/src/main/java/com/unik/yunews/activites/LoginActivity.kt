@@ -1,4 +1,4 @@
-package com.unik.yunews
+package com.unik.yunews.activites
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,13 +6,14 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.unik.yunews.R
+import com.unik.yunews.Utility
 import com.unik.yunews.databinding.ActivityLoginBinding
 import java.util.concurrent.TimeUnit
 
@@ -33,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.txtSendOTP.setOnClickListener {
             if (!TextUtils.isEmpty(binding.edtPhone.text.trim().toString())) {
-                Utility.showLoadingDialog(this,"Loading...",false)
+                Utility.showLoadingDialog(this, "Loading...", false)
                 sendVerificationCode("+91" + binding.edtPhone.text.trim().toString());
             } else {
                 Toast.makeText(this, "Please Enter Phone Number", Toast.LENGTH_LONG).show()

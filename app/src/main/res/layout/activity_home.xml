@@ -7,9 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".HomeActivity">
+        tools:context=".activites.HomeActivity">
 
-        <com.unik.yunews.VerticalViewPager
+        <com.unik.yunews.adapter.VerticalViewPager
             android:visibility="gone"
             android:id="@+id/verticalViewPager"
             android:layout_width="match_parent"

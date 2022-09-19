@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FF4040</color>
+    <color name="purple_200">#FD0000</color>
     <color name="purple_500">#FF0000</color>
     <color name="purple_700">#C80000</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -13,4 +13,5 @@
     <color name="blackTransparent">#D9000000</color>
     <color name="whiteTransparent">#D9FFFFFF</color>
     <color name="otp_text_gray_color">#4C4C4C</color>
+    <color name="red_color">#FD0000</color>
 </resources>

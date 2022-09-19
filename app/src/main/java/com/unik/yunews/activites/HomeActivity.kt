@@ -1,9 +1,11 @@
-package com.unik.yunews
+package com.unik.yunews.activites
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.unik.yunews.R
+import com.unik.yunews.Utility
 import com.unik.yunews.adapter.PageAdapter
 import com.unik.yunews.databinding.ActivityHomeBinding
 import com.unik.yunews.utilities.PopUtils
