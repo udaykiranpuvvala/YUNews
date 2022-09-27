@@ -16,4 +16,12 @@ interface NewsService {
         @Query("apiKey") apiKey: String,
     )
             : Response<NewsModel>
+
+
+    @GET("/v2/top-headlines")
+    suspend fun getIndonesiaNews(
+        @Query("country") country: String,
+        @Query("apiKey") apiKey: String
+    )
+            : Response<NewsModel>
 }

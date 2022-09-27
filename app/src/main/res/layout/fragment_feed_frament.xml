@@ -15,16 +15,97 @@
             android:layout_height="match_parent"
             android:background="@color/white">
 
+
             <com.unik.yunews.adapter.VerticalViewPager
                 android:id="@+id/verticalViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <RelativeLayout
+                android:id="@+id/rlFeed"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@color/bottom_bg"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/txtCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/discover"
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/left_icon" />
+
+                <TextView
+                    android:id="@+id/txtMyFeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="@string/my_feed"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_below="@+id/txtMyFeed"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@color/purple_200" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/download_icon" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lnrLytBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bottom_bg"
+                android:padding="@dimen/_10sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/share_icon"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/share" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/fav_icon"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/bookmark" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -1,14 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.CategoryFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".fragment.CategoryFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rlTop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@color/white"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/settings_icon" />
+
+                <TextView
+                    android:id="@+id/txtDiscover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="@string/discover"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_below="@+id/txtDiscover"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@color/purple_200" />
+
+                <TextView
+                    android:id="@+id/txtFeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/my_feed"
+                    android:textColor="@color/black"
+                    app:drawableEndCompat="@drawable/right_icon" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="#EFEDED"
+                android:drawablePadding="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="@string/search"
+                app:drawableStartCompat="@drawable/search_icon"
+                app:layout_constraintTop_toBottomOf="@+id/rlTop" />
+
+            <View
+                android:id="@+id/viewOne"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="#645F5F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSearch" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewOne">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/categories"
+                        android:textAllCaps="true"
+                        android:textColor="#645F5F"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_margin="@dimen/_8sdp"
+                        android:id="@+id/rvCategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_16sdp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/suggested_topics"
+                        android:textAllCaps="true"
+                        android:textColor="#645F5F"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTopics"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

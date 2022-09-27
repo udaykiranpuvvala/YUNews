@@ -1,11 +1,23 @@
 package com.unik.yunews.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.unik.yunews.R
+import com.unik.yunews.Utility
+import com.unik.yunews.adapter.CategoriesAdapter
+import com.unik.yunews.adapter.TopicsAdapter
+import com.unik.yunews.databinding.FragmentCategoryBinding
+import com.unik.yunews.models.CategoryModel
+import com.unik.yunews.utilities.Constants
+import com.unik.yunews.viewmodel.MainViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +34,10 @@ class CategoryFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var categoryBinding: FragmentCategoryBinding
+//    lateinit var onSlideView: OnSlideView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,9 +49,12 @@ class CategoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        categoryBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_category, container, false)
+        initUI()
+        return categoryBinding.root
     }
 
     companion object {
@@ -56,5 +75,49 @@ class CategoryFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun initUI() {
+
+        val viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+
+        categoryBinding.txtFeed.setOnClickListener {
+            viewModel.setPosition(1)
+        }
+
+        val categoriesList = ArrayList<CategoryModel>()
+        categoriesList.add(CategoryModel("My Feed", R.drawable.my_feed_icon))
+        categoriesList.add(CategoryModel("All News", R.drawable.all_news_icon))
+        categoriesList.add(CategoryModel("Top Stories", R.drawable.top_stories_icon))
+        categoriesList.add(CategoryModel("Trending", R.drawable.trending_icon))
+        categoriesList.add(CategoryModel("Bookmarks", R.drawable.bookmarks_icon))
+        categoriesList.add(CategoryModel("Unread", R.drawable.unread_icon))
+        categoryBinding.rvCategories.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        categoryBinding.rvCategories.adapter = CategoriesAdapter(requireContext(), categoriesList)
+
+        val topicsList = ArrayList<String>()
+        topicsList.add("Business")
+        topicsList.add("Politics")
+        topicsList.add("Sports")
+        topicsList.add("Technology")
+        topicsList.add("Startups")
+        topicsList.add("Entertainment")
+        topicsList.add("Hatke")
+        topicsList.add("International")
+        topicsList.add("Automobile")
+        topicsList.add("Science")
+        topicsList.add("Travel")
+        topicsList.add("Miscellaneous")
+        topicsList.add("Fashion")
+        topicsList.add("Education")
+        topicsList.add("Health &\nFitness")
+        categoryBinding.rvTopics.layoutManager = GridLayoutManager(context, 3)
+        categoryBinding.rvTopics.adapter = TopicsAdapter(requireContext(), topicsList) { key ->
+//            onSlideView.movePosition(1)
+            Utility.setSharedPrefStringData(requireContext(),Constants.POST_KEY,key)
+            viewModel.setPosition(1)
+            Toast.makeText(requireContext(), "$key Posts", Toast.LENGTH_SHORT).show()
+        }
     }
 }

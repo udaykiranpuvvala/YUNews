@@ -7,6 +7,91 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtPhoneNo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_corners_black"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/enter_address_or_phone_number"
+            android:inputType="text"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_corners_black"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPhoneNo" />
+
+        <TextView
+            android:id="@+id/txtSubmitLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_corners_red"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:text="@string/dont_have_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSubmitLogin" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:src="@drawable/lang_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
             android:id="@+id/ivBanner"
             android:layout_width="match_parent"
@@ -14,6 +99,7 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_sign_up"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,13 +110,13 @@
             android:layout_marginTop="@dimen/_180sdp"
             android:background="@drawable/bg_top_corners"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/txtSignIn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:fontFamily="@font/montserrat_regular"
                 android:id="@+id/txtSignUpTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,6 +124,7 @@
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_40sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:text="@string/signup_title"
                 android:textColor="@color/black"
@@ -82,12 +169,12 @@
 
                     <EditText
                         android:id="@+id/edtPhone"
-                        android:fontFamily="@font/montserrat_regular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:drawableStart="@drawable/ic_baseline_phone_24"
+                        android:fontFamily="@font/montserrat_regular"
                         android:hint="@string/mobile_number"
                         android:inputType="phone"
                         android:maxLength="10"
@@ -107,11 +194,11 @@
                 app:cardCornerRadius="@dimen/_10sdp">
 
                 <TextView
-                    android:fontFamily="@font/montserrat_regular"
                     android:id="@+id/txtSendOTP"
                     style="@style/RoundedButton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="@string/send_otp"
                     android:textAllCaps="true" />
             </androidx.cardview.widget.CardView>
@@ -119,16 +206,17 @@
         </LinearLayout>
 
         <TextView
-            android:fontFamily="@font/montserrat_black"
             android:id="@+id/txtSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_80sdp"
             android:layout_marginBottom="@dimen/_50sdp"
+            android:fontFamily="@font/montserrat_black"
             android:gravity="center"
             android:text="@string/skip_to_home"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

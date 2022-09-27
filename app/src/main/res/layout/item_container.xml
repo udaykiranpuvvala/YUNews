@@ -25,6 +25,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <!--<androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -32,6 +33,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/barrier3">-->
 
             <LinearLayout
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:layout_constraintBottom_toTopOf="@+id/txtNewsTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/barrier3">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/lang_bottom" />
+            </LinearLayout>
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@drawable/bg_top_corners"
@@ -43,79 +60,88 @@
                 app:layout_constraintBottom_toTopOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/barrier3">
+                app:layout_constraintTop_toBottomOf="@+id/barrier3">-->
 
-                <RelativeLayout
-                    android:layout_margin="@dimen/_5sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txtFrom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_10sdp"
-                        android:text="@string/sample_text"
-                        android:singleLine="true"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_toStartOf="@+id/cardViewShare"/>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewShare"
-                        android:layout_toStartOf="@+id/cardViewBookMark"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        app:cardElevation="@dimen/_5sdp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_2sdp"
-                            android:src="@drawable/share" />
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewBookMark"
-                        android:layout_alignParentEnd="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        app:cardElevation="@dimen/_5sdp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_2sdp"
-                            android:src="@drawable/bookmark_outline" />
-                    </androidx.cardview.widget.CardView>
-                </RelativeLayout>
+            <!--<RelativeLayout
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtNewsTitle"
+                    android:id="@+id/txtFrom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="3"
+                    android:textSize="@dimen/_10sdp"
                     android:text="@string/sample_text"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:singleLine="true"
+                    android:layout_marginTop="@dimen/_8sdp" />
 
-                <TextView
-                    android:id="@+id/txtNewsDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:text="@string/sample_text"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewShare"
+                    android:layout_toStartOf="@+id/cardViewBookMark"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:src="@drawable/share" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewBookMark"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:src="@drawable/bookmark_outline" />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>-->
+
+            <TextView
+                android:id="@+id/txtNewsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="2"
+                android:paddingTop="@dimen/_10sdp"
+                android:text="@string/sample_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivNews" />
+
+            <!--            </LinearLayout>-->
 
             <!--            </androidx.cardview.widget.CardView>-->
+            <TextView
+                android:id="@+id/txtNewsDesc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_16sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/sample_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNewsTitle" />
+
             <ImageView
                 android:id="@+id/ivTextBg"
                 android:layout_width="match_parent"
@@ -131,11 +157,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:background="@color/blackTransparent"
+                android:background="@color/bottom_bg"
+                android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/sample_text"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -9,11 +9,13 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.unik.yunews.R
+import com.unik.yunews.Utility
 import com.unik.yunews.adapter.ViewPagerAdapter
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.api.RetorfitHelper
 import com.unik.yunews.databinding.FragmentFeedFramentBinding
 import com.unik.yunews.repository.NewsRepository
+import com.unik.yunews.utilities.Constants
 import com.unik.yunews.viewmodel.MainViewModel
 import com.unik.yunews.viewmodel.MainViewModelFactory
 
@@ -34,6 +36,7 @@ class FeedFrament : Fragment() {
 
     lateinit var feedFragmentBinding: FragmentFeedFramentBinding
     private lateinit var viewModel: MainViewModel
+    var clickEventInt = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,14 +59,31 @@ class FeedFrament : Fragment() {
     private fun initUI() {
         val newsService = RetorfitHelper.getInstance().create(NewsService::class.java)
         val repository = NewsRepository(newsService)
-        viewModel = ViewModelProvider(this, MainViewModelFactory(repository)).get(MainViewModel::class.java)
-
+        viewModel = ViewModelProvider(requireActivity(), MainViewModelFactory(repository)).get(MainViewModel::class.java)
+        if(Utility.isValueNullOrEmpty(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))){
+            viewModel.callIndonesiaLatest()
+        }else{
+            viewModel.callIndonesiaSearchLatest(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))
+        }
         viewModel.news.observe(viewLifecycleOwner) {  articleList->
             if (articleList != null){
-                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles))
+                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles) {
+                    if(clickEventInt % 2 == 0){
+                        feedFragmentBinding.lnrLytBottom.visibility = View.VISIBLE
+                        feedFragmentBinding.rlFeed.visibility = View.VISIBLE
+                    }else{
+                        feedFragmentBinding.lnrLytBottom.visibility = View.GONE
+                        feedFragmentBinding.rlFeed.visibility = View.GONE
+                    }
+                    clickEventInt++
+                })
             }else {
                 Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        feedFragmentBinding.txtCategory.setOnClickListener {
+            viewModel.setPosition(1)
         }
     }
 

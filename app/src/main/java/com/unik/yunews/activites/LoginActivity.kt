@@ -2,6 +2,7 @@ package com.unik.yunews.activites
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,11 +26,22 @@ class LoginActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_login)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        val text = "<font color=#645F5F>Don't have an account?</font> <font color=#FD0000>Register</font>"
+        binding.txtRegister.setText(Html.fromHtml(text))
+
 //        Firebase.auth(FirebaseApp.initializeApp(this)!!).firebaseAuthSettings.setAppVerificationDisabledForTesting(true)
 
         binding.txtSignIn.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
+        }
+
+        binding.txtSubmitLogin.setOnClickListener {
+            startActivity(Intent(this,HomeActivity::class.java))
+        }
+
+        binding.txtRegister.setOnClickListener {
+            startActivity(Intent(this,SignInOptionsActivity::class.java))
         }
 
         binding.txtSendOTP.setOnClickListener {

@@ -36,4 +36,20 @@
     <string name="you_can_chnage_from_settings">You can change from settings anytime</string>
     <string name="cancel">Cancel</string>
     <string name="welcome">Welcome</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_in_with_phone">Sign in with phone</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="my_feed">My Feed</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="indonesia">Bahasa Indonesia</string>
+    <string name="login">Login</string>
+    <string name="enter_address_or_phone_number">Enter address or Phone number</string>
+    <string name="password">Password</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+    <string name="discover">Discover</string>
+    <string name="share">Share</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="search">Search</string>
+    <string name="categories">Categories</string>
+    <string name="suggested_topics">Suggested Topics</string>
 </resources>

@@ -14,4 +14,5 @@
     <color name="whiteTransparent">#D9FFFFFF</color>
     <color name="otp_text_gray_color">#4C4C4C</color>
     <color name="red_color">#FD0000</color>
+    <color name="bottom_bg">#E7DDDD</color>
 </resources>

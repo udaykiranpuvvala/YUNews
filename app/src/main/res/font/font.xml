@@ -8,4 +8,60 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/montserrat_bold" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_black" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_blackitalic" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_bold" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_regular" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_bolditalic" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_italic" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_light" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_lightitalic" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_medium" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_mediumitalic" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_thinitalic" />
+
 </font-family>

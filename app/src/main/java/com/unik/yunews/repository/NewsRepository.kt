@@ -21,4 +21,12 @@ class NewsRepository (val newService: NewsService) {
         }
     }
 
+    suspend fun getIndonesiaNews( country : String, apiKey : String){
+        val response = newService.getIndonesiaNews(country,apiKey)
+
+        if (response.body()!=null){
+            articleList.postValue(response.body())
+        }
+    }
+
 }

@@ -13,7 +13,7 @@ import com.unik.yunews.R
 import com.unik.yunews.Utility
 import com.unik.yunews.models.Article
 
-class ViewPagerAdapter(val context: Context,val articleList: List<Article>) : PagerAdapter() {
+class ViewPagerAdapter(val context: Context,val articleList: List<Article>,val onItemSelected: (View) -> Unit) : PagerAdapter() {
 
     override fun getCount(): Int {
         return articleList.size
@@ -31,9 +31,9 @@ class ViewPagerAdapter(val context: Context,val articleList: List<Article>) : Pa
         val txtNewsTitle = itemView.findViewById<TextView>(R.id.txtNewsTitle)
         val txtNewsDesc = itemView.findViewById<TextView>(R.id.txtNewsDesc)
         val textView = itemView.findViewById<TextView>(R.id.textView)
-        val txtFrom = itemView.findViewById<TextView>(R.id.txtFrom)
+//        val txtFrom = itemView.findViewById<TextView>(R.id.txtFrom)
 
-        txtFrom.setText(articleList[position].author)
+//        txtFrom.setText(articleList[position].author)
         txtNewsDesc.setText(articleList[position].content)
         txtNewsTitle.setText(articleList[position].title)
         textView.setText(articleList[position].title+" \n Tap to view more")
@@ -41,6 +41,10 @@ class ViewPagerAdapter(val context: Context,val articleList: List<Article>) : Pa
         Utility.setSharedPrefStringData(context,"WebUrl",articleList[position].url)
         Glide.with(context).load(articleList[position].urlToImage).into(ivNews)
         Glide.with(context).load(articleList[position].urlToImage).into(ivTextBg)
+
+        txtNewsDesc.setOnClickListener {
+            onItemSelected(txtNewsDesc)
+        }
         container.addView(itemView)
         return itemView
     }

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YUNews">
         <activity
-            android:name=".activites.SelectLanguageActivity"
+            android:name=".activites.SignInOptionsActivity"
             android:exported="false" />
         <activity
             android:name=".activites.LanguageSelectionActivity"

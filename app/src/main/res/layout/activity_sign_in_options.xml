@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activites.SignInOptionsActivity">
+
+        <TextView
+            android:id="@+id/txtCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="@dimen/_16sdp"
+            android:text="@string/cancel"
+            android:textColor="@color/red_color"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCancel" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/yunews_logo_larger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+      <!--  <com.google.android.gms.common.SignInButton
+            android:id="@+id/signInButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp" />-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSignInGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="@dimen/_4sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/sign_in_with_google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideLine">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="start"
+                android:drawablePadding="@dimen/_16sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/_16sdp"
+                android:text="@string/sign_in_with_google"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/google_icon_small" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSignInPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="@dimen/_4sdp"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewSignInGoogle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="start"
+                android:drawablePadding="@dimen/_16sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/_16sdp"
+                android:text="@string/sign_in_with_phone"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_local_phone" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:text="@string/already_have_an_account_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewSignInPhone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
