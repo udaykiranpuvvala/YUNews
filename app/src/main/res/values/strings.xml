@@ -52,4 +52,6 @@
     <string name="search">Search</string>
     <string name="categories">Categories</string>
     <string name="suggested_topics">Suggested Topics</string>
+    <string name="swipe_left_to_redirect_the_website_story_to_website_url">Swipe left to redirect the website story to website url</string>
+    <string name="skip_now">Continue without logging in</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.unik.yunews.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unik.yunews.R
 import com.unik.yunews.Utility
+import com.unik.yunews.activites.SearchActivity
 import com.unik.yunews.adapter.CategoriesAdapter
 import com.unik.yunews.adapter.TopicsAdapter
 import com.unik.yunews.databinding.FragmentCategoryBinding
@@ -83,6 +85,10 @@ class CategoryFragment : Fragment() {
 
         categoryBinding.txtFeed.setOnClickListener {
             viewModel.setPosition(1)
+        }
+
+        categoryBinding.txtSearch.setOnClickListener {
+            startActivity(Intent(requireContext(), SearchActivity::class.java))
         }
 
         val categoriesList = ArrayList<CategoryModel>()

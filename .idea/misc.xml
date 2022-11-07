@@ -10,6 +10,7 @@
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/bg_corners_red.xml" value="0.1105" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/bg_top_corners.xml" value="0.1245" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.1245" />
+        <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/ic_icons_yunews_login.xml" value="0.184" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/ic_lang_select.xml" value="0.1105" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1105" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/drawable/ic_local_phone.xml" value="0.1105" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_language_selection.xml" value="0.22" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_search.xml" value="0.1082427536231884" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_select_language.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_sign_in_options.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/activity_splash.xml" value="0.13722826086956522" />
@@ -31,7 +33,7 @@
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/fragment_category.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/fragment_feed_frament.xml" value="0.25" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/fragment_web.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/item_container.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/item_container.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/single_category.xml" value="0.1082427536231884" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/layout/single_topics.xml" value="0.1" />
         <entry key="..\:/Users/puvva/Documents/AndroidProjests/newsapp/yunews/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

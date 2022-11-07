@@ -1,6 +1,7 @@
 package com.unik.yunews.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -67,7 +68,7 @@ class FeedFrament : Fragment() {
         }
         viewModel.news.observe(viewLifecycleOwner) {  articleList->
             if (articleList != null){
-                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles) {
+                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles,{
                     if(clickEventInt % 2 == 0){
                         feedFragmentBinding.lnrLytBottom.visibility = View.VISIBLE
                         feedFragmentBinding.rlFeed.visibility = View.VISIBLE
@@ -76,7 +77,21 @@ class FeedFrament : Fragment() {
                         feedFragmentBinding.rlFeed.visibility = View.GONE
                     }
                     clickEventInt++
-                })
+                },{positionVal ->
+                    articleList.articles[positionVal]
+
+                    try {
+                        val currentPos = (positionVal - 1)
+                        Log.e("Content", "url String FeedFragment:::::::::::: $currentPos")
+                        Log.e("Content", "url String FeedFragment:::::::::::: " + articleList.articles[currentPos].url)
+
+                        Utility.setSharedPrefStringData(context,"WebUrl",articleList.articles[currentPos].url)
+                        viewModel.setWebString(articleList.articles[currentPos].url)
+                    }catch (e: Exception){
+
+                        Log.e("Content", "url String :::::::::::: ${e.localizedMessage}")
+                    }
+                }))
             }else {
                 Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
             }

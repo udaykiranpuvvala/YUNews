@@ -1,5 +1,6 @@
 package com.unik.yunews.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.unik.yunews.api.NewsService
@@ -15,8 +16,10 @@ class NewsRepository (val newService: NewsService) {
 
     suspend fun getNews(q:String, from : String, to : String, sortBy : String, apiKey : String){
         val response = newService.getNews(q,from,to,sortBy,apiKey)
+        Log.e("Key","key getNews ::::::::::::::: "+response)
 
         if (response.body()!=null){
+            Log.e("Key","key getNews ::::::::::::::: "+response.body())
             articleList.postValue(response.body())
         }
     }
@@ -24,7 +27,9 @@ class NewsRepository (val newService: NewsService) {
     suspend fun getIndonesiaNews( country : String, apiKey : String){
         val response = newService.getIndonesiaNews(country,apiKey)
 
+        Log.e("Key","key getNews ::::::::::::::: "+response)
         if (response.body()!=null){
+            Log.e("Key","key getIndonesiaNews ::::::::::::::: "+response.body())
             articleList.postValue(response.body())
         }
     }

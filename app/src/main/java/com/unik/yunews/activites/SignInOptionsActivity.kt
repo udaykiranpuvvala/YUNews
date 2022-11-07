@@ -60,6 +60,10 @@ class SignInOptionsActivity : AppCompatActivity() {
         binding.txtLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
+
+        binding.txtSkip.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

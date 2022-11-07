@@ -1,5 +1,6 @@
 package com.unik.yunews.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import com.unik.yunews.models.NewsModel
 import com.unik.yunews.repository.NewsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.logging.Logger
 
 class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     private val API_KEY = "b4a851d17a694b7cb0764a92388b4194"
@@ -19,10 +21,15 @@ class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
         }
     }*/
     val position = MutableLiveData<Int>()
+    val webUrl = MutableLiveData<String>()
 
     // function to send message
     fun setPosition(positionVal: Int) {
         position.value = positionVal
+    }
+
+    fun setWebString(webUrlVal: String) {
+        webUrl.value = webUrlVal
     }
 
     fun callIndonesiaLatest(){
@@ -32,6 +39,7 @@ class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     }
 
     fun callIndonesiaSearchLatest(key: String){
+        Log.e("Key","key ::::::::::::::: "+key)
         viewModelScope.launch (Dispatchers.IO){
             newsRepository.getNews(key, "2022-09-01", "2022-11-01", "popularity", API_KEY)
         }

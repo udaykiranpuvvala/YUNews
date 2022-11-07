@@ -107,7 +107,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginStart="@dimen/_16sdp"
-                        android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/categories"
                         android:textAllCaps="true"
@@ -115,7 +114,8 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
                         android:id="@+id/rvCategories"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />

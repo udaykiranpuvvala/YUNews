@@ -1,15 +1,18 @@
 package com.unik.yunews.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.unik.yunews.R
 import com.unik.yunews.Utility
 import com.unik.yunews.databinding.FragmentWebBinding
+import com.unik.yunews.viewmodel.MainViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +50,8 @@ class WebFragment : Fragment() {
     }
 
     private fun initUI() {
+
+        val viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         // this will enable the javascript settings
         // WebViewClient allows you to handle
         // onPageFinished and override Url loading.
@@ -55,7 +60,13 @@ class WebFragment : Fragment() {
 
         // if you want to enable zoom feature
         binding.webView.settings.setSupportZoom(true)
-        binding.webView.loadUrl(Utility.getSharedPreference(requireContext(),"WebUrl"))
+
+        Log.e("Content", "url String WebFragment:::::::::::: ${Utility.getSharedPreference(requireContext(),"WebUrl")}")
+        Log.e("Content", "url String WebFragment  viewModel :::::::::::: ${viewModel.webUrl.value}")
+        viewModel.webUrl.observe(viewLifecycleOwner) { webUrl ->
+            Log.e("Content", "url String WebFragment:::::::::::: $webUrl")
+            binding.webView.loadUrl(webUrl)
+        }
     }
 
     companion object {

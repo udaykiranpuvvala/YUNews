@@ -1,6 +1,7 @@
 package com.unik.yunews.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import com.unik.yunews.R
 import com.unik.yunews.Utility
 import com.unik.yunews.models.Article
 
-class ViewPagerAdapter(val context: Context,val articleList: List<Article>,val onItemSelected: (View) -> Unit) : PagerAdapter() {
+class ViewPagerAdapter(val context: Context,val articleList: List<Article>,val onItemSelected: (View) -> Unit,val onItemViewed: (Int) -> Unit) : PagerAdapter() {
 
     override fun getCount(): Int {
         return articleList.size
@@ -30,19 +31,25 @@ class ViewPagerAdapter(val context: Context,val articleList: List<Article>,val o
         val ivTextBg = itemView.findViewById<ImageView>(R.id.ivTextBg)
         val txtNewsTitle = itemView.findViewById<TextView>(R.id.txtNewsTitle)
         val txtNewsDesc = itemView.findViewById<TextView>(R.id.txtNewsDesc)
+        val txtSwipeToLeft = itemView.findViewById<TextView>(R.id.txtSwipeToLeft)
         val textView = itemView.findViewById<TextView>(R.id.textView)
 //        val txtFrom = itemView.findViewById<TextView>(R.id.txtFrom)
 
 //        txtFrom.setText(articleList[position].author)
-        txtNewsDesc.setText(articleList[position].content)
+        val content = articleList[position].content.split("…")
+
+        txtNewsDesc.setText(content[0])
         txtNewsTitle.setText(articleList[position].title)
         textView.setText(articleList[position].title+" \n Tap to view more")
 
-        Utility.setSharedPrefStringData(context,"WebUrl",articleList[position].url)
+        onItemViewed(position)
         Glide.with(context).load(articleList[position].urlToImage).into(ivNews)
         Glide.with(context).load(articleList[position].urlToImage).into(ivTextBg)
 
         txtNewsDesc.setOnClickListener {
+            onItemSelected(txtNewsDesc)
+        }
+        txtSwipeToLeft.setOnClickListener {
             onItemSelected(txtNewsDesc)
         }
         container.addView(itemView)

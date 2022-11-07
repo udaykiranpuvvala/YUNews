@@ -11,8 +11,8 @@
 
         <TextView
             android:id="@+id/txtTopicTitle"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_90sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center"
             android:background="@drawable/bg_circular"
             android:fontFamily="@font/roboto_regular"
