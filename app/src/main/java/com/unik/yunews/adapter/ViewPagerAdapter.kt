@@ -34,11 +34,11 @@ class ViewPagerAdapter(val context: Context,val articleList: List<Article>,val o
         val txtSwipeToLeft = itemView.findViewById<TextView>(R.id.txtSwipeToLeft)
         val textView = itemView.findViewById<TextView>(R.id.textView)
 //        val txtFrom = itemView.findViewById<TextView>(R.id.txtFrom)
-
 //        txtFrom.setText(articleList[position].author)
-        val content = articleList[position].content.split("…")
-
-        txtNewsDesc.setText(content[0])
+        if(articleList[position].content != null) {
+            val content = articleList[position].content.split("…")
+            txtNewsDesc.setText(content[0])
+        }
         txtNewsTitle.setText(articleList[position].title)
         textView.setText(articleList[position].title+" \n Tap to view more")
 
