@@ -9,9 +9,9 @@ import com.unik.yunews.models.NewsModel
 
 class NewsRepository (val newService: NewsService) {
 
-    private val articleList = MutableLiveData<NewsModel>()
+    private val articleList = MutableLiveData<NewsModel?>()
 
-    val articles : LiveData<NewsModel>
+    val articles : MutableLiveData<NewsModel?>
         get() = articleList
 
     suspend fun getNews(q:String, from : String, to : String, sortBy : String, apiKey : String){
@@ -23,7 +23,7 @@ class NewsRepository (val newService: NewsService) {
             Log.d("Home_Activity", "getNews: response body not null " + response.body())
             articleList.postValue(response.body())
         }else{
-            Log.d("Home_Activity", "getNews: response body null ")
+            articleList.postValue(null)
         }
     }
 
@@ -36,7 +36,7 @@ class NewsRepository (val newService: NewsService) {
             Log.d("Home_Activity", "getIndonesiaNews: response body not null " + response.body())
             articleList.postValue(response.body())
         }else{
-            Log.d("Home_Activity", "getIndonesiaNews: respones null ")
+            articleList.postValue(null)
         }
     }
 

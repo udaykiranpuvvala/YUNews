@@ -16,6 +16,8 @@ import com.unik.yunews.adapter.ViewPagerAdapter
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.api.RetorfitHelper
 import com.unik.yunews.databinding.FragmentFeedFramentBinding
+import com.unik.yunews.models.Article
+import com.unik.yunews.models.Source
 import com.unik.yunews.repository.NewsRepository
 import com.unik.yunews.utilities.Constants
 import com.unik.yunews.viewmodel.MainViewModel
@@ -75,8 +77,39 @@ class FeedFrament : Fragment() {
         }
 
         viewModel.news.observe(viewLifecycleOwner) {  articleList->
-            if (articleList != null){
-                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles,{
+//            if (articleList != null){
+                val listOfArticles= ArrayList<Article>()
+                if (articleList != null) {
+                    listOfArticles.addAll(articleList.articles)
+                    var i = 0
+                    listOfArticles.forEach {
+                        i++
+                        if (i == 1) {
+                            val source = Source("Ad", "Ad")
+                            val article = Article("Ad", "Ad", "Ad", "Ad",
+                                source, "Ad", "Ad", "yunews_ad_01")
+                            listOfArticles[3] = article
+                        }
+                        if (i == 6) {
+                            val source = Source("Ad", "Ad")
+                            val article = Article("Ad", "Ad", "Ad", "Ad",
+                                source, "Ad", "Ad", "yunews_ad_02")
+                            listOfArticles[6] = article
+                        }
+                        if (i == 9) {
+                            val source = Source("Ad", "Ad")
+                            val article = Article("Ad", "Ad", "Ad", "Ad", source,
+                                    "Ad", "Ad", "yunews_ad_03")
+                            listOfArticles[9] = article
+                        }
+                    }
+                } else {
+                    val source = Source("Ad", "Ad")
+                    val article = Article("Ad", "Ad", "Ad", "Ad", source, "Ad", "Ad", "yunews_ad_01")
+                    listOfArticles.add(article)
+                }
+
+                feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), listOfArticles,{
                     if(clickEventInt % 2 == 0){
                         feedFragmentBinding.lnrLytBottom.visibility = View.VISIBLE
                         feedFragmentBinding.rlFeed.visibility = View.VISIBLE
@@ -100,10 +133,9 @@ class FeedFrament : Fragment() {
                         Log.e("Content", "url String :::::::::::: ${e.localizedMessage}")
                     }
                 }))
-            }else {
-                Log.d(TAG, "initUI: news is null")
-                Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            }
+//            }else {
+//                Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
+//            }
         }
 
         feedFragmentBinding.txtCategory.setOnClickListener {

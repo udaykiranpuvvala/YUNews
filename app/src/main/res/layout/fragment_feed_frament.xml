@@ -15,7 +15,6 @@
             android:layout_height="match_parent"
             android:background="@color/white">
 
-
             <com.unik.yunews.adapter.VerticalViewPager
                 android:nestedScrollingEnabled="true"
                 android:id="@+id/verticalViewPager"
@@ -30,7 +29,7 @@
                 android:id="@+id/rlFeed"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
-                android:background="@color/bottom_bg"
+                android:background="@color/white"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +81,7 @@
                 android:id="@+id/lnrLytBottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/bottom_bg"
+                android:background="@color/white"
                 android:padding="@dimen/_10sdp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
