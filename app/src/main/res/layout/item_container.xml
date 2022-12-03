@@ -9,6 +9,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -33,8 +34,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/barrier3">-->
 
             <LinearLayout
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 app:cardCornerRadius="@dimen/_16sdp"
                 app:layout_constraintBottom_toTopOf="@+id/txtNewsTitle"
@@ -42,39 +43,42 @@
                 app:layout_constraintTop_toTopOf="@+id/barrier3">
 
                 <ImageView
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:padding="@dimen/_12sdp"
+                    android:padding="@dimen/_4sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_yunews_logo_icon" />
             </LinearLayout>
 
             <TextView
+                android:lineSpacingExtra="@dimen/_2sdp"
                 android:id="@+id/txtNewsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:maxLines="2"
-                android:layout_marginTop="@dimen/_14sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp"
+                android:textSize="@dimen/_16sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivNews" />
 
             <TextView
+                android:lineSpacingExtra="@dimen/_2sdp"
                 android:id="@+id/txtNewsDesc"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtNewsTitle" />
@@ -114,10 +118,10 @@
                 android:background="@color/blackTransparent"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"
-                android:textSize="@dimen/_12sdp"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/sample_text"
                 android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -150,5 +154,13 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:visibility="gone"
+            android:src="@drawable/yunews_ad_01"
+            android:id="@+id/ivAd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

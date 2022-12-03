@@ -21,6 +21,8 @@ class NewsRepository (val newService: NewsService) {
         if (response.body()!=null){
             Log.e("Key","key getNews ::::::::::::::: "+response.body())
             articleList.postValue(response.body())
+        }else{
+            articleList.postValue(null)
         }
     }
 
@@ -31,6 +33,8 @@ class NewsRepository (val newService: NewsService) {
         if (response.body()!=null){
             Log.e("Key","key getIndonesiaNews ::::::::::::::: "+response.body())
             articleList.postValue(response.body())
+        }else{
+            articleList.postValue(null)
         }
     }
 
