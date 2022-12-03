@@ -17,13 +17,14 @@
 
 
             <com.unik.yunews.adapter.VerticalViewPager
+                android:nestedScrollingEnabled="true"
                 android:id="@+id/verticalViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toTopOf="parent" />
 
             <RelativeLayout
                 android:id="@+id/rlFeed"

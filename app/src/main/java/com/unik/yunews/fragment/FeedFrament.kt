@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.unik.yunews.R
 import com.unik.yunews.Utility
+import com.unik.yunews.adapter.VerticalViewPager
 import com.unik.yunews.adapter.ViewPagerAdapter
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.api.RetorfitHelper
@@ -39,6 +40,8 @@ class FeedFrament : Fragment() {
     private lateinit var viewModel: MainViewModel
     var clickEventInt = 2
 
+    private val TAG = "Home_Activity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -58,14 +61,19 @@ class FeedFrament : Fragment() {
     }
 
     private fun initUI() {
+        Log.d(TAG, "initUI: in feed fragment")
         val newsService = RetorfitHelper.getInstance().create(NewsService::class.java)
         val repository = NewsRepository(newsService)
         viewModel = ViewModelProvider(requireActivity(), MainViewModelFactory(repository)).get(MainViewModel::class.java)
+
         if(Utility.isValueNullOrEmpty(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))){
+            Log.d(TAG, "initUI: callIndonesiaLatest")
             viewModel.callIndonesiaLatest()
         }else{
+            Log.d(TAG, "initUI: callIndonesiaSearchLatest")
             viewModel.callIndonesiaSearchLatest(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))
         }
+
         viewModel.news.observe(viewLifecycleOwner) {  articleList->
             if (articleList != null){
                 feedFragmentBinding.verticalViewPager.setAdapter(ViewPagerAdapter(requireContext(), articleList.articles,{
@@ -93,6 +101,7 @@ class FeedFrament : Fragment() {
                     }
                 }))
             }else {
+                Log.d(TAG, "initUI: news is null")
                 Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
             }
         }

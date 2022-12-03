@@ -20,7 +20,10 @@ class NewsRepository (val newService: NewsService) {
 
         if (response.body()!=null){
             Log.e("Key","key getNews ::::::::::::::: "+response.body())
+            Log.d("Home_Activity", "getNews: response body not null " + response.body())
             articleList.postValue(response.body())
+        }else{
+            Log.d("Home_Activity", "getNews: response body null ")
         }
     }
 
@@ -30,7 +33,10 @@ class NewsRepository (val newService: NewsService) {
         Log.e("Key","key getNews ::::::::::::::: "+response)
         if (response.body()!=null){
             Log.e("Key","key getIndonesiaNews ::::::::::::::: "+response.body())
+            Log.d("Home_Activity", "getIndonesiaNews: response body not null " + response.body())
             articleList.postValue(response.body())
+        }else{
+            Log.d("Home_Activity", "getIndonesiaNews: respones null ")
         }
     }
 

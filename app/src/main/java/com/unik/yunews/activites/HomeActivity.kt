@@ -1,6 +1,7 @@
 package com.unik.yunews.activites
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,15 +22,15 @@ import com.unik.yunews.viewmodel.MainViewModelFactory
 
 class HomeActivity : AppCompatActivity(), OnSlideView {
     lateinit var phno: String
-    lateinit var binding: ActivityHomeBinding
+    lateinit var binding : ActivityHomeBinding
     lateinit var viewModel: MainViewModel
 
-
+    private val TAG = "Home_Activity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-
+        Log.d(TAG, "onCreate: Home Activity")
         initUI()
     }
 
@@ -38,7 +39,6 @@ class HomeActivity : AppCompatActivity(), OnSlideView {
             phno = intent.getStringExtra("phno").toString()
             Utility.setSharedPrefStringData(this, "PHNO", phno)
         }
-
 
         val newsService = RetorfitHelper.getInstance().create(NewsService::class.java)
         val repository = NewsRepository(newsService)
@@ -49,6 +49,7 @@ class HomeActivity : AppCompatActivity(), OnSlideView {
 //        binding.viewPager.setCurrentItem(1,true)
 
         viewModel.setPosition(1)
+
         viewModel.position.observe(this, Observer {
             binding.viewPager.setCurrentItem(it,true)
         })
