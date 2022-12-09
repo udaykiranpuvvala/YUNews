@@ -31,6 +31,7 @@ class LanguageSelectionActivity : AppCompatActivity() {
 
     private fun navigateToLogin(lang: String) {
         Utility.setSharedPrefStringData(this, "language", lang)
-        startActivity(Intent(this, SignInOptionsActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
+//        startActivity(Intent(this, SignInOptionsActivity::class.java))
     }
 }

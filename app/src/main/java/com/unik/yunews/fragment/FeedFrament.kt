@@ -6,12 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.unik.yunews.R
 import com.unik.yunews.Utility
-import com.unik.yunews.adapter.VerticalViewPager
 import com.unik.yunews.adapter.ViewPagerAdapter
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.api.RetorfitHelper
