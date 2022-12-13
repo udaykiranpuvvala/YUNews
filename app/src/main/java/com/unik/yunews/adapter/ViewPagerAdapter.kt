@@ -1,11 +1,9 @@
 package com.unik.yunews.adapter
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.PagerAdapter
@@ -27,7 +26,6 @@ import com.unik.yunews.repository.NewsRepository
 import com.unik.yunews.viewmodel.MainViewModel
 import com.unik.yunews.viewmodel.MainViewModelFactory
 import retrofit2.create
-
 
 class ViewPagerAdapter(val context: Context, private val activity : FragmentActivity, val articleList: ArrayList<Article>, val onItemSelected: (View) -> Unit, val onItemViewed: (Int) -> Unit) : PagerAdapter() {
 
@@ -68,6 +66,13 @@ class ViewPagerAdapter(val context: Context, private val activity : FragmentActi
             when(articleList[position].urlToImage){
                 "yunews_ad_01" -> {
                     ivAd.setImageDrawable(context.resources.getDrawable(R.drawable.yunews_ad_01))
+//                    ivAd.setOnClickListener{
+//                        val intent = Intent()
+//                        intent.action = Intent.ACTION_VIEW
+//                        intent.addCategory(Intent.CATEGORY_BROWSABLE)
+//                        intent.data = Uri.parse("https://royalmaxxx.com/")
+//                        startActivity(intent)
+//                    }
                 }
                 "yunews_ad_02" -> {
                     ivAd.setImageDrawable(context.resources.getDrawable(R.drawable.yunews_ad_02))
