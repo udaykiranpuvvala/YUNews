@@ -80,9 +80,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                app:layout_constraintBottom_toTopOf="@+id/txtSwipeToLeft"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/barrier4"
                 app:layout_constraintTop_toBottomOf="@+id/txtNewsTitle" />
 
             <TextView
@@ -97,6 +97,7 @@
                 android:text="@string/swipe_left_to_redirect_the_website_story_to_website_url"
                 android:textColor="@color/grey_dark"
                 android:textSize="@dimen/_10ssp"
+                app:layout_constraintTop_toBottomOf="@+id/txtNewsDesc"
                 app:layout_constraintBottom_toTopOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintGuide_percent="0.95"
+                app:layout_constraintGuide_percent="0.83"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -162,7 +163,6 @@
             android:src="@drawable/yunews_ad_01"
             android:id="@+id/ivAd"
             android:clickable="true"
-            android:onClick=""
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY" />

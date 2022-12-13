@@ -14,6 +14,7 @@ import java.util.logging.Logger
 
 class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     private val API_KEY = "b77a54e52da24f7a997172dd6d586811"
+//    private val API_KEY = "b4a851d17a694b7cb0764a92388b4194"
 
     /*init{
         viewModelScope.launch (Dispatchers.IO){

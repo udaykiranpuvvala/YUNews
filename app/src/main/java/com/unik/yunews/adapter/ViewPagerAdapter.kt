@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.unik.yunews.R
+import com.unik.yunews.activites.NewsImageActivity
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.api.RetorfitHelper
 import com.unik.yunews.models.Article
@@ -29,7 +31,7 @@ import retrofit2.create
 
 class ViewPagerAdapter(val context: Context, private val activity : FragmentActivity, val articleList: ArrayList<Article>, val onItemSelected: (View) -> Unit, val onItemViewed: (Int) -> Unit) : PagerAdapter() {
 
-    private lateinit var viewModel : MainViewModel
+    private var viewModel : MainViewModel
 
     init{
         val newsService : NewsService = RetorfitHelper.getInstance().create()
@@ -81,15 +83,41 @@ class ViewPagerAdapter(val context: Context, private val activity : FragmentActi
                     ivAd.setImageDrawable(context.resources.getDrawable(R.drawable.yunews_ad_03))
                 }
             }
+            ivAd.setOnClickListener {
+                when(articleList[position].urlToImage){
+                    "yunews_ad_01" -> {
+                        viewModel.setWebString("https://royalmaxxx.com/")
+                    }
+                    "yunews_ad_02" -> {
+                        viewModel.setWebString("https://mustzlm.com/")
+                    }
+                    "yunews_ad_03" -> {
+                        viewModel.setWebString("http://kampungtoto88.com/")
+                    }
+                }
+                viewModel.setPosition(2)
+            }
         }else {
             ivAd.visibility = View.GONE
             constraintLayoutNews.visibility = View.VISIBLE
             if (articleList[position].content != null) {
-                txtNewsDesc.setText(articleList[position].content)
+                val content = articleList[position].content.split("…")
+                txtNewsDesc.setText(content[0]+"...")
+            }else{
+                txtNewsDesc.setText(articleList[position].description)
             }
 
             txtNewsTitle.setText(articleList[position].title)
             textView.setText(articleList[position].title + " \n Tap to view more")
+            var urlSplit = articleList[position].url.split(".co")
+            if(urlSplit.size >= 1){
+                val finalUrl = urlSplit[0].removePrefix("https://www.")
+                if(finalUrl.contains("https://")){
+                    finalUrl.removePrefix("https://")
+                }
+                Log.e("Removed String","Suffix Prefix::::::: "+finalUrl)
+                txtSwipeToLeft.text = "Swipe left to redirect the website story to $finalUrl"
+            }
 
             onItemViewed(position)
             Glide.with(context).load(articleList[position].urlToImage).into(ivNews)
@@ -101,16 +129,18 @@ class ViewPagerAdapter(val context: Context, private val activity : FragmentActi
             txtSwipeToLeft.setOnClickListener {
                 onItemSelected(txtNewsDesc)
             }
+
             textView.setOnClickListener{
+                viewModel.setWebString(articleList[position].url)
                 viewModel.setPosition(2)
             }
             ivNews.setOnClickListener{
-                val builder = Dialog(context)
-                builder.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                val intent = Intent(context,NewsImageActivity::class.java)
+                intent.putExtra("imageUrl",articleList[position].urlToImage)
+                context.startActivity(intent)
 
-//                builder.getWindow()?.setBackgroundDrawable(
-//                    ColorDrawable(Color.BLACK)
-//                )
+               /* val builder = Dialog(context)
+                builder.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
                 val imageView = ImageView(context)
                 Glide.with(context).load(articleList[position].urlToImage).into(imageView)
@@ -121,7 +151,7 @@ class ViewPagerAdapter(val context: Context, private val activity : FragmentActi
                         ViewGroup.LayoutParams.MATCH_PARENT
                     )
                 )
-                builder.show()
+                builder.show()*/
 
 //                val builder : AlertDialog.Builder = AlertDialog.Builder(activity)
             }

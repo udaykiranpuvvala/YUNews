@@ -12,19 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YUNews">
         <activity
-            android:name=".ImgPopupActivity"
+            android:name=".NewsImageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ImagePopupActivity"
+            android:name=".activites.NewsImageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+       <!-- <activity
+            android:name=".ImagePopupActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>-->
         <activity
             android:name=".activites.SearchActivity"
             android:exported="false"
