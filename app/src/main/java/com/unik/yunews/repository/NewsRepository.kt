@@ -28,7 +28,8 @@ class NewsRepository (val newService: NewsService) {
     }
 
     suspend fun getIndonesiaNews( country : String, apiKey : String){
-        val response = newService.getIndonesiaNews(country,apiKey)
+//        val response = newService.getIndonesiaNews(country,apiKey)
+        val response = newService.getIndonesiaNews(1,"x9CR6845LF3fyy5",2,"hyd")
 
         Log.e("Key","key getNews ::::::::::::::: "+response)
         if (response.body()!=null){

@@ -71,7 +71,8 @@ class FeedFrament : Fragment() {
             viewModel.callIndonesiaLatest()
         }else{
             Log.d(TAG, "initUI: callIndonesiaSearchLatest")
-            viewModel.callIndonesiaSearchLatest(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))
+            viewModel.callIndonesiaLatest()
+//            viewModel.callIndonesiaSearchLatest(Utility.getSharedPreference(requireContext(),Constants.POST_KEY))
         }
 
         viewModel.news.observe(viewLifecycleOwner) {  articleList->

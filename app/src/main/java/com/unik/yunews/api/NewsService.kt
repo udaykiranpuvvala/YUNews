@@ -18,10 +18,20 @@ interface NewsService {
             : Response<NewsModel>
 
 
-    @GET("/v2/top-headlines")
+    /*@GET("/v2/top-headlines")
     suspend fun getIndonesiaNews(
         @Query("country") country: String,
         @Query("apiKey") apiKey: String
+    )
+            : Response<NewsModel>*/
+
+
+    @GET("/api/Getnews")
+    suspend fun getIndonesiaNews(
+        @Query("userid") userId: Int,
+        @Query("Apikey") apiKey: String,
+        @Query("numberofnews") newsCount: Int,
+        @Query("area") area: String
     )
             : Response<NewsModel>
 }
