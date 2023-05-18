@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.unik.yunews.api.NewsService
 import com.unik.yunews.models.Article
 import com.unik.yunews.models.NewsModel
+import java.util.logging.Logger
 
 class NewsRepository (val newService: NewsService) {
 
@@ -39,6 +40,11 @@ class NewsRepository (val newService: NewsService) {
         }else{
             articleList.postValue(null)
         }
+    }
+
+    suspend fun setDeviceToken(token: String,apiKey:String){
+        val response = newService.setDeviceToken(""+token,"Android",apiKey)
+        Log.e("setDeviceToken","setDeviceToken ::: "+response)
     }
 
 }

@@ -39,6 +39,13 @@ class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
         }
     }
 
+    fun callSetToken(token: String){
+        viewModelScope.launch (Dispatchers.IO){
+//            newsRepository.setDeviceToken(API_KEY,)
+            newsRepository.setDeviceToken(token,API_KEY)
+        }
+    }
+
     fun callIndonesiaSearchLatest(key: String){
         Log.e("Key","key ::::::::::::::: "+key)
         viewModelScope.launch (Dispatchers.IO){

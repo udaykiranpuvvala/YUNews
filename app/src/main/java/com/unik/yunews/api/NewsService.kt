@@ -1,9 +1,11 @@
 package com.unik.yunews.api
 
+import com.google.gson.JsonElement
 import com.unik.yunews.models.Article
 import com.unik.yunews.models.NewsModel
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface NewsService {
@@ -34,4 +36,12 @@ interface NewsService {
         @Query("area") area: String
     )
             : Response<NewsModel>
+
+    @POST("/api/PostDevice")
+    suspend fun setDeviceToken(
+        @Query("device_token") deviceToken: String,
+        @Query("device_type") deviceType: String,
+        @Query("Apikey") apiKey: String
+    )
+            : Response<JsonElement>
 }
